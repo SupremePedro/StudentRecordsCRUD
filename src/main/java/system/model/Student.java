@@ -10,18 +10,18 @@ import java.util.Date;
 public class Student {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name ="fname", length = 80)
+    @Column(name ="first_name", length = 80)
     private String firstName;
 
-    @Column(name = "sname", length = 80)
+    @Column(name = "second_name", length = 80)
     private String secondName;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "bdate")
+    @Column(name = "birth_date")
     private Date birthDate;
 
     @Column(name = "age")

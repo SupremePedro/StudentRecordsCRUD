@@ -24,7 +24,23 @@ public class StudentController {
     }
 
     @GetMapping("/students/{id}")
-    public Student getOne(@PathVariable String id) {
-        return studentsService.getStudent(Integer.parseInt(id));
+    public Student getOne(@PathVariable(value = "id")Integer id) {
+        return studentsService.getStudent(id);
+    }
+
+    @PostMapping("/students")
+    public void create(@RequestBody Student student) {
+        System.out.println("create student");
+        studentsService.addStudent(student);
+    }
+
+    @PutMapping("/students/{id}")
+    public void update(@PathVariable(value = "id")Integer id, @RequestBody Student student) {
+        studentsService.updateStudent(student);
+    }
+
+    @DeleteMapping("/students/{id}")
+    public void delete(@PathVariable(value = "id") Integer id) {
+        studentsService.deleteStudent(id);
     }
 }
