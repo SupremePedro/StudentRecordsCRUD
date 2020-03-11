@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import system.model.Student;
 import system.service.StudentServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -34,8 +35,8 @@ public class StudentController {
         studentsService.addStudent(student);
     }
 
-    @PutMapping("/students/{id}")
-    public void update(@PathVariable(value = "id")Integer id, @RequestBody Student student) {
+    @PutMapping("/students")
+    public void update(@Valid @RequestBody Student student) {
         studentsService.updateStudent(student);
     }
 
